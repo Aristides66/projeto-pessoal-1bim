@@ -1,32 +1,13 @@
-const botao = document.getElementById("gerar")
+function gerar() {
+    var caracteres = "abcdefghijklmnopqrstuvwxyz0123456789!@#$%&*"
+    var senha = ""
+    var i = 0
 
-botao.addEventListener("click", gerarSenha)
+    while (i < 8) {
+        var aleatorio = Math.floor(Math.random() * caracteres.length)
+        senha = senha + caracteres[aleatorio]
+        i = i + 1
+    }
 
-function gerarSenha() {
-  const tamanho = document.getElementById("tamanho").value
-  const maiusculas = document.getElementById("maiusculas").checked
-  const minusculas = document.getElementById("minusculas").checked
-  const numeros = document.getElementById("numeros").checked
-  const simbolos = document.getElementById("simbolos").checked
-
-  let caracteres = "";
-
-  if (maiusculas) caracteres += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  if (minusculas) caracteres += "abcdefghijklmnopqrstuvwxyz"
-  if (numeros) caracteres += "0123456789"
-  if (simbolos) caracteres += "!@#$&"
-
-  if (caracteres === "") {
-    alert("Selecione pelo menos uma opção!")
-    return
-  }
-
-  let senha = ""
-
-  for (let i = 0; i < tamanho; i++) {
-    const random = Math.floor(Math.random() * caracteres.length)
-    senha += caracteres[random]
-  }
-
-  document.getElementById("resultado").textContent = senha
+    document.getElementById("senha").value = senha
 }
