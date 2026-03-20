@@ -4,14 +4,12 @@ botao.addEventListener("click", gerarSenha)
 
 function gerarSenha() {
   const tamanho = document.getElementById("tamanho").value
-  const maiusculas = document.getElementById("maiusculas").checked
   const minusculas = document.getElementById("minusculas").checked
   const numeros = document.getElementById("numeros").checked
   const simbolos = document.getElementById("simbolos").checked
 
-  let caracteres = "";
+  let caracteres = ""
 
-  if (maiusculas) caracteres += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   if (minusculas) caracteres += "abcdefghijklmnopqrstuvwxyz"
   if (numeros) caracteres += "0123456789"
   if (simbolos) caracteres += "!@#$&"
